@@ -1,7 +1,5 @@
-function sum = moneySum(a)
-  b = regexp(a,'[0-9]');
-  sum = 0;
-  for i=1:length(b)
-      sum = sum + str2double(a{i}(b{i}))/100;
-  end
+function b = moneySum(a)
+ %a = {'$12,001.87','$0.04','$103,887.55','$0.32'};
+  b =  sum(cellfun(@str2num,regexprep(a, '[\$,]', '')));
 end
+

@@ -1,8 +1,10 @@
-function ans = which_doors_open(n)
-y = ones(n,n);
-for i = 2:n
-    v = repmat([zeros(1,i-1) 1],1,n);
-    y(i,:) = v(1:n);
+function y = which_doors_open(n)
+  D = zeros(n,1);
+  for v = 1:n
+    D(v:v:n) = D(v:v:n)+1;
+  end
+  y = find(mod(D,2))';
+  
+  % or with little brain work:
+  % y = (1:sqrt(n)).^2;
 end
-
-find(mod(sum(y),2))

@@ -1,8 +1,4 @@
-function s1 = refcn(s1)
+function s2 = refcn2(s1)
   %Matlab Cody 22: Remove the vowels
-  v = 'bcdfghjklmnpqrstvxyz';
-  for i=1:length(v)
-      r = strfind(lower(s1),v(i));
-      s1(r)=[];
-  end
+  s2 = regexprep(s1, '(?![aeiou])[a-z]', '', 'ignorecase');
 end
