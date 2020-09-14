@@ -1,12 +1,7 @@
 % Matlab Cody
 % Problem 1748. Ripping numbers apart!
 function out = numbersRip(x)
-    l = num2str(x);
-    for i = 1:size(l,1) 
-       for j = 1:size(l,2) 
-         s(i,2*j-1) =  l(i,j);
-         s(i,2*j) = ' ';
-       end
-       out{i,1} = str2num(s(i,:));
+    for i = size(x,1):-1:1
+       out{i,1} = strrep(num2str(x(i,:)), ' ', '') - '0';
     end
 end
